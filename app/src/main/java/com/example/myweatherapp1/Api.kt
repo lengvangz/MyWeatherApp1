@@ -7,8 +7,15 @@ import retrofit2.http.Query
 interface Api {
     @GET("weather")
     fun getCurrentConditions(
-        @Query("zip") zip:String,
+        @Query("zip") zip: String,
         @Query("units") units: String = "imperial",
-        @Query("appid")appid: String = "65d0dbe0426f683cc656687df21d2bbe",
-    ) : Call<CurrentConditions>
+        @Query("appId")appId: String = "c163037dbc8433a6fc6ed27e192a5a95",
+    ) :Call<CurrentConditions>
+
+    @GET("listForecast")
+    fun getForecast(
+        @Query("zip") zip: String,
+        @Query("units") units: String = "imperial",
+        @Query("appId")appId: String = "c163037dbc8433a6fc6ed27e192a5a95",
+    ) :Call<Forecast>
 }

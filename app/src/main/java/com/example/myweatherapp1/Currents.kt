@@ -8,5 +8,5 @@ data class Currents(
     @Json(name = "temp_min") val tempMin: Float,
     @Json(name = "temp_max") val tempMax: Float,
     val pressure: Float,
-    val Humidity: Float,
+    val humidity: Float,
 )

@@ -16,7 +16,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 
-class ForecastActivity : AppCompatActivity(){
+class ForecastActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private val apiKey = "c163037dbc8433a6fc6ed27e192a5a95"
@@ -29,22 +29,22 @@ class ForecastActivity : AppCompatActivity(){
     private lateinit var low: TextView
 
     private val adapterData = listOf<DayForecast>(
-        DayForecast(1643692260, 1645406400,1645477200,10f,10),
-        DayForecast(1643778660,1645406400,1645477200,10f,10),
-        DayForecast(1643865060,1645406400,1645477200,10f,10),
-        DayForecast(1643951460,1645406400,1645477200,10f,10),
-        DayForecast(1644037860,1645406400,1645477200,10f,10),
-        DayForecast(1644124260,1645406400,1645477200,10f,10),
-        DayForecast(1644210660,1645406400,1645477200,10f,10),
-        DayForecast(1644297060,1645406400,1645477200,10f,10),
-        DayForecast(1644383460,1645406400,1645477200,10f,10),
-        DayForecast(1644469860,1645406400,1645477200,10f,10),
-        DayForecast(1644556260,1645406400,1645477200,10f,10),
-        DayForecast(1644642660,1645406400,1645477200,10f,10),
-        DayForecast(1644729060,1645406400,1645477200,10f,10),
-        DayForecast(1644815460,1645406400,1645477200,10f,10),
-        DayForecast(1644901860,1645406400,1645477200,10f,10),
-        DayForecast(1644988260,1645406400,1645477200,10f,10),
+        DayForecast(1643692260, 1645406400, 1645477200, 10f, 10),
+        DayForecast(1643778660, 1645406400, 1645477200, 10f, 10),
+        DayForecast(1643865060, 1645406400, 1645477200, 10f, 10),
+        DayForecast(1643951460, 1645406400, 1645477200, 10f, 10),
+        DayForecast(1644037860, 1645406400, 1645477200, 10f, 10),
+        DayForecast(1644124260, 1645406400, 1645477200, 10f, 10),
+        DayForecast(1644210660, 1645406400, 1645477200, 10f, 10),
+        DayForecast(1644297060, 1645406400, 1645477200, 10f, 10),
+        DayForecast(1644383460, 1645406400, 1645477200, 10f, 10),
+        DayForecast(1644469860, 1645406400, 1645477200, 10f, 10),
+        DayForecast(1644556260, 1645406400, 1645477200, 10f, 10),
+        DayForecast(1644642660, 1645406400, 1645477200, 10f, 10),
+        DayForecast(1644729060, 1645406400, 1645477200, 10f, 10),
+        DayForecast(1644815460, 1645406400, 1645477200, 10f, 10),
+        DayForecast(1644901860, 1645406400, 1645477200, 10f, 10),
+        DayForecast(1644988260, 1645406400, 1645477200, 10f, 10),
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -92,7 +92,7 @@ class ForecastActivity : AppCompatActivity(){
 
             }
 
-        } )
+        })
     }
 
     private fun bindData(api: Api) {

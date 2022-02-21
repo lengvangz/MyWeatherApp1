@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="56dp"
     tools:context=".ForecastActivity">
@@ -16,19 +15,19 @@
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:paddingHorizontal="12dp"
         android:layout_marginTop="12dp"
         android:gravity="start|center_vertical"
-        tools:text = "Jan 31"/>
+        android:paddingHorizontal="12dp"
+        tools:text="Jan 31" />
 
     <TextView
         android:id="@+id/sunrise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="12dp"
         android:layout_marginTop="12dp"
+        android:paddingHorizontal="12dp"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:text="Sunrise: 8:00am"/>
+        tools:text="Sunrise: 8:00am" />
 
     <TextView
         android:id="@+id/sunset"
@@ -37,7 +36,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/sunrise"
         app:layout_constraintTop_toBottomOf="@id/sunrise"
-        tools:text="Sunset:9:00pm"/>
+        tools:text="Sunset:9:00pm" />
 
     <TextView
         android:id="@+id/current_temp"
@@ -46,7 +45,7 @@
         android:paddingHorizontal="12dp"
         app:layout_constraintStart_toEndOf="@id/date"
         app:layout_constraintTop_toTopOf="@id/date"
-        tools:text="@string/temperature"/>
+        tools:text="@string/temperature" />
 
     <TextView
         android:id="@+id/fhigh"
@@ -55,16 +54,16 @@
         android:paddingHorizontal="12dp"
         app:layout_constraintStart_toStartOf="@id/current_temp"
         app:layout_constraintTop_toBottomOf="@id/current_temp"
-        tools:text="@string/high"/>
+        tools:text="@string/high" />
 
     <TextView
         android:id="@+id/flow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingHorizontal="12dp"
-        app:layout_constraintStart_toEndOf="@id/fhigh"
         app:layout_constraintBottom_toBottomOf="@id/fhigh"
-        tools:text="@string/low"/>
+        app:layout_constraintStart_toEndOf="@id/fhigh"
+        tools:text="@string/low" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

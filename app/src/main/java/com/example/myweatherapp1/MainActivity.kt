@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         pressure = findViewById(R.id.pressure)
 
         button.setOnClickListener {
-            startActivity(Intent(this,ForecastActivity::class.java))
+            startActivity(Intent(this, ForecastActivity::class.java))
         }
 
         val moshi = Moshi.Builder()
@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity() {
 
             }
 
-        } )
+        })
     }
 
     private fun bindData(currentConditions: CurrentConditions) {

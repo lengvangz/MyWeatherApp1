@@ -19,7 +19,7 @@ import java.time.format.DateTimeFormatter
 @SuppressLint("NewApi")
 class MyAdapter(
     private val data: List<DayForecast>,
-    ) : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
 
     /**
      * wrapper around a view for an item
@@ -53,7 +53,7 @@ class MyAdapter(
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.forecast_activity,parent,false)
+            .inflate(R.layout.forecast_activity, parent, false)
 
         return ViewHolder(view)
     }

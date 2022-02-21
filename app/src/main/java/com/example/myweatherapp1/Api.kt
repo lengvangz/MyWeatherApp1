@@ -9,13 +9,14 @@ interface Api {
     fun getCurrentConditions(
         @Query("zip") zip: String,
         @Query("units") units: String = "imperial",
-        @Query("appId")appId: String = "c163037dbc8433a6fc6ed27e192a5a95",
+        @Query("appid")appId: String = "c163037dbc8433a6fc6ed27e192a5a95",
     ) :Call<CurrentConditions>
 
-    @GET("listForecast")
+    @GET("forecast")
     fun getForecast(
         @Query("zip") zip: String,
         @Query("units") units: String = "imperial",
-        @Query("appId")appId: String = "c163037dbc8433a6fc6ed27e192a5a95",
+        @Query("cnt") count: String = "16",
+        @Query("appid")appId: String = "c163037dbc8433a6fc6ed27e192a5a95",
     ) :Call<Forecast>
 }

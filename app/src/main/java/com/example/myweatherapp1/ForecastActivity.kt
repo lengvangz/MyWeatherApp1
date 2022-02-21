@@ -27,25 +27,24 @@ class ForecastActivity : AppCompatActivity(){
     private lateinit var currentTemp: TextView
     private lateinit var high: TextView
     private lateinit var low: TextView
-    private lateinit var conditionIcons: ImageView
 
-    private val adapterData = listOf<Data>(
-        Data(1643692260),
-        Data(1643778660),
-        Data(1643865060),
-        Data(1643951460),
-        Data(1644037860),
-        Data(1644124260),
-        Data(1644210660),
-        Data(1644297060),
-        Data(1644383460),
-        Data(1644469860),
-        Data(1644556260),
-        Data(1644642660),
-        Data(1644729060),
-        Data(1644815460),
-        Data(1644901860),
-        Data(1644988260),
+    private val adapterData = listOf<DayForecast>(
+        DayForecast(1643692260, 1645406400,1645477200,10f,10),
+        DayForecast(1643778660,1645406400,1645477200,10f,10),
+        DayForecast(1643865060,1645406400,1645477200,10f,10),
+        DayForecast(1643951460,1645406400,1645477200,10f,10),
+        DayForecast(1644037860,1645406400,1645477200,10f,10),
+        DayForecast(1644124260,1645406400,1645477200,10f,10),
+        DayForecast(1644210660,1645406400,1645477200,10f,10),
+        DayForecast(1644297060,1645406400,1645477200,10f,10),
+        DayForecast(1644383460,1645406400,1645477200,10f,10),
+        DayForecast(1644469860,1645406400,1645477200,10f,10),
+        DayForecast(1644556260,1645406400,1645477200,10f,10),
+        DayForecast(1644642660,1645406400,1645477200,10f,10),
+        DayForecast(1644729060,1645406400,1645477200,10f,10),
+        DayForecast(1644815460,1645406400,1645477200,10f,10),
+        DayForecast(1644901860,1645406400,1645477200,10f,10),
+        DayForecast(1644988260,1645406400,1645477200,10f,10),
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,21 +54,20 @@ class ForecastActivity : AppCompatActivity(){
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = MyAdapter(adapterData)
-        
-        conditionIcons = findViewById(R.id.condition_icons)
+
         date = findViewById(R.id.date)
         sunrise = findViewById(R.id.sunrise)
         sunset = findViewById(R.id.sunset)
-        currentTemp = findViewById(R.id.temp)
-        high = findViewById(R.id.high)
-        low = findViewById(R.id.low)
+        currentTemp = findViewById(R.id.current_temp)
+        high = findViewById(R.id.fhigh)
+        low = findViewById(R.id.flow)
 
         val moshi = Moshi.Builder()
             .add(KotlinJsonAdapterFactory())
             .build()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://api.openweathermap.org/data/2.5/forecast/daily")
+            .baseUrl("https://api.openweathermap.org/data/2.5/forecast/daily/")
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
 
@@ -78,7 +76,7 @@ class ForecastActivity : AppCompatActivity(){
 
     override fun onResume() {
         super.onResume()
-        val call: Call<Forecast> = api.getForecast("55423")
+        val call: Call<Forecast> = api.getForecast("54016")
         call.enqueue(object : Callback<Forecast> {
             override fun onResponse(
                 call: Call<Forecast>,
@@ -86,7 +84,7 @@ class ForecastActivity : AppCompatActivity(){
             ) {
                 val forecast = response.body()
                 forecast?.let {
-                    bindData(it)
+                    bindData(api)
                 }
             }
 
@@ -97,19 +95,7 @@ class ForecastActivity : AppCompatActivity(){
         } )
     }
 
-    private fun bindData(forecast: Forecast) {
-        date.text = forecast.listForecast.firstOrNull()?.date.toString()
-        sunrise.text = forecast.sunrise
-        sunset.text = forecast.sunset
-        currentTemp.text = forecast.temp
-        high.text = forecast.high
-        low.text = forecast.low
-        val iconName = forecast.listForecast.firstOrNull()?.
-        val iconUrl = "https://openweathermap.org/img/wn/${iconName}@2x.png"
-        Glide.with(this)
-            .load(iconUrl)
-            .into(conditionIcons)
-
+    private fun bindData(api: Api) {
 
     }
 }

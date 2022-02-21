@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        val call: Call<CurrentConditions> = api.getCurrentConditions("55423")
+        val call: Call<CurrentConditions> = api.getCurrentConditions("54016")
         call.enqueue(object : Callback<CurrentConditions> {
             override fun onResponse(
                 call: Call<CurrentConditions>,
@@ -96,3 +96,9 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
+private lateinit var date: TextView
+private lateinit var sunrise: TextView
+private lateinit var sunset: TextView
+private lateinit var currentTemp: TextView
+private lateinit var high: TextView
+private lateinit var low: TextView

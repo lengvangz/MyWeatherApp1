@@ -18,26 +18,32 @@ import java.time.format.DateTimeFormatter
  */
 @SuppressLint("NewApi")
 class MyAdapter(
-    private val data: List<Data>,
+    private val data: List<DayForecast>,
     ) : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
 
     /**
      * wrapper around a view for an item
      */
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        private val iconView: ImageView = view.findViewById(R.id.condition_icon)
         private val dateView: TextView = view.findViewById(R.id.date)
         private val sunriseView: TextView = view.findViewById(R.id.sunrise)
         private val sunsetView: TextView = view.findViewById(R.id.sunset)
-        private val currentTempView: TextView = view.findViewById(R.id.temp)
-        private val highView: TextView = view.findViewById(R.id.high)
-        private val lowView: TextView = view.findViewById(R.id.low)
+        private val currentTemp: TextView = view.findViewById(R.id.current_temp)
+        private val high: TextView = view.findViewById(R.id.fhigh)
+        private val low: TextView = view.findViewById(R.id.flow)
 
-        fun bind(data: Data) {
+        fun bind(data: DayForecast) {
             val instant = Instant.ofEpochSecond(data.date)
             val dateTime = LocalDateTime.ofInstant(instant, ZoneId.systemDefault())
             val formatter = DateTimeFormatter.ofPattern("MMM dd")
+            val timeFormatter = DateTimeFormatter.ofPattern("h:mma")
             dateView.text = formatter.format(dateTime)
+            sunriseView.text = timeFormatter.format(dateTime)
+            sunsetView.text = timeFormatter.format(dateTime)
+            currentTemp.text = "Temp: 72"
+            high.text = "High: 80"
+            low.text = "Low: 65"
+
         }
     }
 

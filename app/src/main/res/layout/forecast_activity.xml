@@ -12,67 +12,59 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <ImageView
-        android:id="@+id/condition_icons"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:contentDescription="@null"
-        android:scaleType="center"
-        android:src="@drawable/sun"
-        app:layout_constraintEnd_toStartOf="@+id/date"
-        app:layout_constraintTop_toTopOf="parent"/>
-
     <TextView
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:paddingHorizontal="12dp"
+        android:layout_marginTop="12dp"
         android:gravity="start|center_vertical"
-        app:layout_constraintStart_toStartOf="@id/condition_icons"
-        tools:text="Jan 31"/>
+        tools:text = "Jan 31"/>
 
     <TextView
         android:id="@+id/sunrise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        android:paddingHorizontal="12dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:text="Sunrise: 8:00am" />
+        tools:text="Sunrise: 8:00am"/>
 
     <TextView
         android:id="@+id/sunset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sunrise"
-        tools:text="Sunset: 9:00pm" />
+        app:layout_constraintStart_toStartOf="@id/sunrise"
+        app:layout_constraintTop_toBottomOf="@id/sunrise"
+        tools:text="Sunset:9:00pm"/>
 
     <TextView
-        android:id="@+id/temp"
+        android:id="@+id/current_temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintHorizontal_bias="0.38"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sunrise"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Temp: 72" />
+        android:paddingHorizontal="12dp"
+        app:layout_constraintStart_toEndOf="@id/date"
+        app:layout_constraintTop_toTopOf="@id/date"
+        tools:text="@string/temperature"/>
 
     <TextView
-        android:id="@+id/high"
+        android:id="@+id/fhigh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/temp"
-        app:layout_constraintTop_toBottomOf="@id/temp"
-        tools:text="High: 80" />
+        android:paddingHorizontal="12dp"
+        app:layout_constraintStart_toStartOf="@id/current_temp"
+        app:layout_constraintTop_toBottomOf="@id/current_temp"
+        tools:text="@string/high"/>
 
     <TextView
-        android:id="@+id/low"
+        android:id="@+id/flow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        app:layout_constraintBottom_toBottomOf="@id/high"
-        app:layout_constraintStart_toEndOf="@id/high"
-        tools:text="Low: 65" />
+        android:paddingHorizontal="12dp"
+        app:layout_constraintStart_toEndOf="@id/fhigh"
+        app:layout_constraintBottom_toBottomOf="@id/fhigh"
+        tools:text="@string/low"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

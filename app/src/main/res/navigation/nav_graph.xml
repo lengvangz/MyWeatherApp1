@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="id/currentConditionsFragment">
+
+    <fragment
+        android:id="@+id/currentConditionsFragment"
+        android:name="com.example.myweatherapp1.CurrentConditionsFragment"
+        android:label="CurrentConditionsFragment" >
+
+    <action
+        android:id="@+id/action_currentConditionsFragment_to_forecastFragment"
+        app:destination="@+id/forecastFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/forecastFragment"
+        android:name="com.example.myweatherapp1.ForecastFragment"
+        android:label="fragment_forecast"
+        tools:layout="@layout/fragment_forecast">
+
+        <argument
+            android:name="forecast"
+            app:argType="com.example.myapplication.Forecast" />
+    </fragment>
+
+    <fragment android:id="@+id/myFragment" >
+        <argument
+            android:name="myArg"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+
+
+
+</navigation>

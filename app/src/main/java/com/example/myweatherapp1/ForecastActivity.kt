@@ -4,7 +4,11 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myweatherapp1.R
+import com.example.myweatherapp1.adapters.ForecastAdapter
+import com.example.myweatherapp1.api.Api
 import com.example.myweatherapp1.databinding.ForecastActivityBinding
+import com.example.myweatherapp1.viewmodels.ForecastViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

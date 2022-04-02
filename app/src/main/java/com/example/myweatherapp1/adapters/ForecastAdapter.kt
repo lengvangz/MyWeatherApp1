@@ -1,17 +1,22 @@
-package com.example.myweatherapp1
+package com.example.myweatherapp1.adapters
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.myweatherapp1.data.DayForecast
+import com.example.myweatherapp1.R
+import com.example.myweatherapp1.data.Forecast
 
 @SuppressLint("NewApi")
 class ForecastAdapter(private var data: List<DayForecast>) : RecyclerView.Adapter<ForecastAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val binding: ViewHolderBinding = ViewHolderBinding.bind(view)
+        val textView: TextView = view.findViewById(R.id.sunset)
 
         fun bind(dayForecast: DayForecast) {
             binding.sunrise.text = ""
@@ -36,6 +41,12 @@ class ForecastAdapter(private var data: List<DayForecast>) : RecyclerView.Adapte
 
     override fun getItemCount(): Int {
         return data.size
+    }
+
+    private fun navigateToForecast() {
+        val forecast = Forecast(33f, "Sunny")
+        val action = CurrentConditionsFragmentDirections.actionCurrentConditionsFragmentToForecastFragment(forecast)
+        findNavController().navigate(action)
     }
 
 }

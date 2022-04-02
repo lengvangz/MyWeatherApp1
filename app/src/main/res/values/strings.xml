@@ -8,4 +8,7 @@
     <string name="humidity">Humidity %1$d  </string>
     <string name="pressure">Pressure %1$d hPa</string>
     <string name="forecast">Forecast</string>
+    <string name="zip_code">ZIP Code</string>
+    <string name="search">Search</string>
+    <string name="ok">ok</string>
 </resources>

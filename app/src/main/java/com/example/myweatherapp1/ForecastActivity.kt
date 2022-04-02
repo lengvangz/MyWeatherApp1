@@ -32,7 +32,7 @@ class ForecastActivity : AppCompatActivity() {
         recyclerView.adapter = ForecastAdapter(emptyList())
 
         viewModel.forecast.observe(this) {
-            recyclerView.adapter = ForecastAdapter(it.list)
+            recyclerView.adapter = ForecastAdapter()
         }
 
     }

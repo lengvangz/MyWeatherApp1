@@ -1,11 +1,9 @@
 package com.example.myweatherapp1
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import com.example.myweatherapp1.databinding.ActivityMainBinding
-import com.example.myweatherapp1.viewmodels.CurrentConditionsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

@@ -1,7 +1,12 @@
 package com.example.myweatherapp1.data
 
-class lonLat (
-    val lon: Long,
-    val lat: Long,
+import android.os.Parcelable
+import com.squareup.moshi.Json
+import kotlinx.parcelize.Parcelize
 
-)
+@Parcelize
+class Coordinates (
+    @Json(name = "lat") val latitude: Double,
+    @Json(name = "lon") val longitude: Double,
+
+    ): Parcelable
